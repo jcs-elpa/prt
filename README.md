@@ -6,6 +6,12 @@
 
 [![CI](https://github.com/jcs-elpa/prt/actions/workflows/test.yml/badge.svg)](https://github.com/jcs-elpa/prt/actions/workflows/test.yml)
 
+## 🔧 Customization
+
+#### 🧪 Variables
+
+* `prt-pulse-characters` - Characters to use for pulsing progress reporters.
+
 ## Contribute
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
