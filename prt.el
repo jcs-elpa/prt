@@ -4,9 +4,9 @@
 ;; Created date 2022-07-14 13:41:03
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; URL: https://github.com/jcs090218/prt
+;; URL: https://github.com/jcs-elpa/prt
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "24.3"))
+;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: convenience
 
 ;; This file is NOT part of GNU Emacs.
@@ -31,7 +31,37 @@
 
 ;;; Code:
 
+(defgroup prt nil
+  "Progress Reporter Library."
+  :prefix "prt-"
+  :group 'tool
+  :link '(url-link :tag "Repository" "https://github.com/jcs-elpa/prt"))
 
+(defmacro prt--silent (&rest body)
+  "Execute BODY without write it to message buffer."
+  (declare (indent 0) (debug t))
+  `(let (message-log-max) ,@body))
+
+;;;###autoload
+(defun prt-create (message &optional min-value max-value current-value min-change min-time)
+  "Create a progress reporter."
+  (make-progress-reporter message min-value max-value current-value min-change min-time))
+
+(defun prt-update (reporter &optional value suffix)
+  "Report progress of an operation in the echo area."
+  (progress-reporter-update reporter value suffix))
+
+(defun prt-done (reporter &optional message)
+  "Print reporter's message followed by word \"done\" in echo area."
+  (prt--silent
+    (progress-reporter-done reporter)
+    (when message (message message))))
+
+;;;###autoload
+(defmacro prt-with (message &rest body)
+  "Execute BODY with progress reporter in a scope."
+  (declare (indent 1) (debug t))
+  `(let ((rt (prt-create ,message))) ,@body))
 
 (provide 'prt)
 ;;; prt.el ends here
