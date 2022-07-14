@@ -6,6 +6,16 @@
 
 [![CI](https://github.com/jcs-elpa/prt/actions/workflows/test.yml/badge.svg)](https://github.com/jcs-elpa/prt/actions/workflows/test.yml)
 
+## 💾 Quickstart
+
+```elisp
+(prt-with "Start counting... "
+  (dotimes (count 100)
+    (sit-for 0.1)
+    (prt-update rt (format " %s" count)))
+  (prt-done rt))
+```
+
 ## 🔧 Customization
 
 #### 🧪 Variables
