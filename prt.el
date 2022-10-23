@@ -70,7 +70,7 @@
 (defun prt-done (reporter &optional message)
   "Print reporter's message followed by word \"done\" in echo area."
   (prt--env
-    (msgu-silent
+    (msgu-inhibit-log
       (progress-reporter-done reporter)
       (when message (message message)))))
 
