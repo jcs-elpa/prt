@@ -1,6 +1,6 @@
 ;;; prt.el --- Progress Reporter Library  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022-2024  Shen, Jen-Chieh
+;; Copyright (C) 2022-2025  Shen, Jen-Chieh
 ;; Created date 2022-07-14 13:41:03
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
