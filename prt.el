@@ -61,11 +61,11 @@
 ;;;###autoload
 (defun prt-create (message &optional min-value max-value current-value min-change min-time)
   "Create a progress reporter."
-  (prt--env (make-progress-reporter message min-value max-value current-value min-change min-time)))
+  (prt--env (apply #'make-progress-reporter message min-value max-value current-value min-change min-time)))
 
 (defun prt-update (reporter &optional value suffix)
   "Report progress of an operation in the echo area."
-  (prt--env (progress-reporter-update reporter value suffix)))
+  (prt--env (apply #'progress-reporter-update reporter value suffix)))
 
 (defun prt-done (reporter &optional message)
   "Print reporter's message followed by word \"done\" in echo area."
